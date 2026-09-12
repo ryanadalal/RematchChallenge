@@ -2,11 +2,11 @@
 
 ## Overview
 
-This project analyzes the behavior of two agents — **Bayesian Optimal Experiment Design (BOED)** and **Design-Augmented Bayesian Optimal Experiment Design (DBOED)** — on 30 Supreme Court case classification tasks. Using each agent's exploration traces, belief embeddings, and concept graphs, the analysis examines how the two agents differ in how they explore a problem space and arrive at predictions.
+This project analyzes the behavior of two agents: **Bayesian Optimal Experiment Design (BOED)** and **Design-Augmented Bayesian Optimal Experiment Design (DBOED)**, on 30 Supreme Court case classification tasks. Using each agent's exploration traces, belief embeddings, and concept graphs, the analysis examines how the two agents differ in how they explore a problem space and arrive at predictions.
 
 ## Goal
 
-Given the agent data for the 30 classification tasks, the goal was to uncover trends and identify patterns in how the two agents explore, update their beliefs, and reason toward a final answer — and to understand what, if anything, the "design" belief system contributes beyond a standard task belief system.
+Given the agent data for the 30 classification tasks, the goal was to uncover trends and identify patterns in how the two agents explore, update their beliefs, and reason toward a final answer; and to understand what, if anything, the "design" belief system contributes beyond a standard task belief system.
 
 ## Methodology
 
@@ -31,7 +31,7 @@ Average belief change (Euclidean distance to the next belief) was computed at ea
 Total distance traveled (summed across an episode) and average distance per step were compared across agents and belief types.
 
 - Total distance traveled is roughly similar across all agents and belief types.
-- Average distance *per step* is notably smaller for BOED task beliefs than for DBOED task or design beliefs — possibly because the combination of design and task beliefs lets DBOED make larger, more confident jumps by reasoning explicitly about its own thinking process.
+- Average distance *per step* is notably smaller for BOED task beliefs than for DBOED task or design beliefs, possibly because the combination of design and task beliefs lets DBOED make larger, more confident jumps by reasoning explicitly about its own thinking process.
 
 ### 3. Design vs. Task Belief Change Ratio (DBOED only)
 
@@ -39,7 +39,7 @@ Total distance traveled (summed across an episode) and average distance per step
 
 The ratio of design-belief change to task-belief change was tracked at each step, split by outcome.
 
-- No clear relationship emerges between relative design vs. task belief change. Both belief types update drastically near the beginning and end of an episode, with no step where one is static while the other moves — suggesting both are continuously active throughout the episode.
+- No clear relationship emerges between relative design vs. task belief change. Both belief types update drastically near the beginning and end of an episode, with no step where one is static while the other moves, suggesting both are continuously active throughout the episode.
 
 ### 4. Normalized Belief Change by Agent, Belief Type, and Outcome
 
@@ -56,7 +56,7 @@ Belief changes were normalized per episode (to account for differing episode len
 
 Prediction confidence was compared against expected information gain at each step for both agents.
 
-- EIG and confidence appear inversely related for both agents — intuitively, when an agent expects to learn a lot from its next action, it implicitly knows it's still missing information needed for an accurate prediction.
+- EIG and confidence appear inversely related for both agents. Intuitively, when an agent expects to learn a lot from its next action, it implicitly knows it's still missing information needed for an accurate prediction.
 - Correct episodes tend to show less erratic confidence and EIG than incorrect ones, suggesting more stable, confident reasoning is associated with better outcomes, while erratic swings track with confusion or being "lost" in the reasoning process.
 
 ### 6. Concept Entropy
@@ -67,7 +67,7 @@ Concept entropy (how spread out vs. focused an agent's attention is across conce
 
 - DBOED design beliefs show the highest entropy, consistent with a role focused on broad direction-setting and exploration.
 - DBOED task beliefs show higher entropy than BOED task beliefs, suggesting the design belief system may "encourage" the task beliefs to consider a wider range of topics.
-- Higher entropy helps avoid missing key information; lower entropy supports focused analysis and firm conclusions. Combining a high-entropy (design) system with a lower-entropy (task) system may be part of why DBOED achieves higher accuracy — though no direct correlation between entropy and accuracy was found at the level of individual episodes.
+- Higher entropy helps avoid missing key information; lower entropy supports focused analysis and firm conclusions. Combining a high-entropy (design) system with a lower-entropy (task) system may be part of why DBOED achieves higher accuracy, though no direct correlation between entropy and accuracy was found at the level of individual episodes.
 
 ### 7. Concept Breadth (Number of Active Concepts)
 
@@ -82,7 +82,7 @@ Using an activation-salience threshold (results were robust across thresholds fr
 | BOED Task vs DBOED Design | 8.945 | 0.000000 | +70.57 |
 
 - Differences in concept-activation counts between BOED and DBOED are statistically significant.
-- Despite having higher entropy, DBOED activates *fewer* total concepts per episode than BOED — suggesting DBOED focuses in depth on a smaller set of important concepts over many steps, while BOED activates more concepts but analyzes each only briefly, likely including a number of irrelevant ones.
+- Despite having higher entropy, DBOED activates *fewer* total concepts per episode than BOED, suggesting DBOED focuses in depth on a smaller set of important concepts over many steps, while BOED activates more concepts but analyzes each only briefly, likely including a number of irrelevant ones.
 
 ### 8. Active Concepts Over Time
 
@@ -96,7 +96,7 @@ Plotting active concept counts per step (at two different thresholds) reinforces
 
 Multi-dimensional beliefs were projected into 2D via UMAP to visualize how beliefs evolve over an episode (the first step was excluded, since it is always randomly initialized and sits apart from the rest).
 
-- Early steps (2–4) form a distinct, tighter cluster, while later steps (10–20) become increasingly intermingled — consistent with agents quickly finding a general direction early on, then making smaller, incremental refinements later.
+- Early steps (2–4) form a distinct, tighter cluster, while later steps (10–20) become increasingly intermingled: consistent with agents quickly finding a general direction early on, then making smaller, incremental refinements later.
 - Design beliefs show a slightly clearer directional gradient than task beliefs, suggesting the design system maintains a more consistent sense of "how to proceed" even when the task-level analysis is still uncertain.
 - Task and design beliefs occupy almost entirely separate regions of the embedding space, consistent with their intended roles (design = approach, task = content), though some overlap suggests each system is aware of, and responsive to, the other.
 
@@ -108,7 +108,7 @@ Concept activations were also projected via UMAP for individual episodes to look
 
 - BOED and DBOED activate largely overlapping concept spaces, with no clear pattern distinguishing which agent activates which concepts.
 - Concept activations typically form two distinct clusters per episode. For one example episode, cluster contents (labeled qualitatively with the help of a large language model) corresponded to (a) legal procedure, statutory analysis, case law, and judicial reasoning, and (b) case-specific technical elements (e.g., in one episode, age-verification technology combined with legal/regulatory analysis).
-- DBOED tends to explore a narrower set of concepts initially and broaden its focus later, while BOED explores broadly at first and does little further exploration afterward — reflecting two different problem-solving styles: "explore broadly, then narrow" (BOED) vs. "orient first, then explore" (DBOED).
+- DBOED tends to explore a narrower set of concepts initially and broaden its focus later, while BOED explores broadly at first and does little further exploration afterward, reflecting two different problem-solving styles: "explore broadly, then narrow" (BOED) vs. "orient first, then explore" (DBOED).
 
 ## Conclusion
 
