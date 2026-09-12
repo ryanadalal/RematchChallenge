@@ -16,7 +16,7 @@ For each analysis below, beliefs are treated as points in a multi-dimensional em
 
 ### 1. Magnitude of Belief Change Over Time
 
-![Average belief change per step transition, by agent and belief type, split by outcome](belief_change_magnitude_by_accuracy.png)
+![Average belief change per step transition, by agent and belief type, split by outcome](images/belief_change_magnitude_by_accuracy.png)
 
 Average belief change (Euclidean distance to the next belief) was computed at each step, separated by agent, belief type, and accuracy.
 
@@ -26,7 +26,7 @@ Average belief change (Euclidean distance to the next belief) was computed at ea
 
 ### 2. Total and Average Distance Traveled
 
-![Box plots of total distance traveled and average distance per step, by agent and belief type](distance_traveled_boxplots.png)
+![Box plots of total distance traveled and average distance per step, by agent and belief type](images/distance_traveled_boxplots.png)
 
 Total distance traveled (summed across an episode) and average distance per step were compared across agents and belief types.
 
@@ -35,7 +35,7 @@ Total distance traveled (summed across an episode) and average distance per step
 
 ### 3. Design vs. Task Belief Change Ratio (DBOED only)
 
-![Design/Task belief change ratio over time, Correct vs. Incorrect episodes](design_task_belief_change_ratio.png)
+![Design/Task belief change ratio over time, Correct vs. Incorrect episodes](images/design_task_belief_change_ratio.png)
 
 The ratio of design-belief change to task-belief change was tracked at each step, split by outcome.
 
@@ -43,7 +43,7 @@ The ratio of design-belief change to task-belief change was tracked at each step
 
 ### 4. Normalized Belief Change by Agent, Belief Type, and Outcome
 
-![Normalized belief change per step, full breakdown by agent, belief type, and outcome](normalized_belief_change_by_group.png)
+![Normalized belief change per step, full breakdown by agent, belief type, and outcome](images/normalized_belief_change_by_group.png)
 
 Belief changes were normalized per episode (to account for differing episode lengths) and compared across agent/belief-type/outcome groups.
 
@@ -52,7 +52,7 @@ Belief changes were normalized per episode (to account for differing episode len
 
 ### 5. Confidence vs. Expected Information Gain (EIG)
 
-![Confidence vs. Expected Information Gain, BOED and DBOED, Correct vs. Incorrect episodes](confidence_vs_eig.png)
+![Confidence vs. Expected Information Gain, BOED and DBOED, Correct vs. Incorrect episodes](images/confidence_vs_eig.png)
 
 Prediction confidence was compared against expected information gain at each step for both agents.
 
@@ -61,7 +61,7 @@ Prediction confidence was compared against expected information gain at each ste
 
 ### 6. Concept Entropy
 
-![Average concept entropy over time, by agent/belief type and by outcome](concept_entropy.png)
+![Average concept entropy over time, by agent/belief type and by outcome](images/concept_entropy.png)
 
 Concept entropy (how spread out vs. focused an agent's attention is across concepts) was measured over time and by outcome.
 
@@ -71,7 +71,7 @@ Concept entropy (how spread out vs. focused an agent's attention is across conce
 
 ### 7. Concept Breadth (Number of Active Concepts)
 
-![Concept breadth per episode and by outcome](concept_breadth.png)
+![Concept breadth per episode and by outcome](images/concept_breadth.png)
 
 Using an activation-salience threshold (results were robust across thresholds from roughly 40–90%), the number of "active" concepts per episode was compared across agents.
 
@@ -86,13 +86,13 @@ Using an activation-salience threshold (results were robust across thresholds fr
 
 ### 8. Active Concepts Over Time
 
-![Active concepts per step at two salience thresholds (85 and 40)](active_concepts_per_step.png)
+![Active concepts per step at two salience thresholds (85 and 40)](images/active_concepts_per_step.png)
 
 Plotting active concept counts per step (at two different thresholds) reinforces the above: DBOED design beliefs maintain the broadest concept focus at any given step, consistent with their role in guiding general problem-solving direction, while BOED maintains a narrower focus throughout.
 
 ### 9. Belief Embedding UMAP Projection
 
-![UMAP projection of belief embeddings, colored by step number, agent type, and belief type](belief_embedding_umap.png)
+![UMAP projection of belief embeddings, colored by step number, agent type, and belief type](images/belief_embedding_umap.png)
 
 Multi-dimensional beliefs were projected into 2D via UMAP to visualize how beliefs evolve over an episode (the first step was excluded, since it is always randomly initialized and sits apart from the rest).
 
@@ -102,7 +102,7 @@ Multi-dimensional beliefs were projected into 2D via UMAP to visualize how belie
 
 ### 10. Concept Activation Clusters
 
-![UMAP of concept activations for one episode: overlap, and temporal evolution for BOED and DBOED](concept_activation_clusters.png)
+![UMAP of concept activations for one episode: overlap, and temporal evolution for BOED and DBOED](images/concept_activation_clusters.png)
 
 Concept activations were also projected via UMAP for individual episodes to look for shared vs. agent-specific concept usage.
 
@@ -124,7 +124,3 @@ Across 30 Supreme Court classification episodes, the DBOED agent's added design-
 - Xiong, Zhen, Yujun Cai, Zhecheng Li, and Yiwei Wang. "Mapping the Minds of LLMs: A Graph-Based Analysis of Reasoning LLM." arXiv, May 20, 2025. https://doi.org/10.48550/arXiv.2505.13890
 - He, Zhonghao, Tianyi Qiu, Hirokazu Shirado, and Maarten Sap. "Martingale Score: An Unsupervised Metric for Bayesian Rationality in LLM Reasoning," December 2, 2025. https://doi.org/10.48550/arXiv.2512.02914
 - Lidayan, Aly, Jakob Brandt Bjorner, Satvik Golechha, and Alane Suhr. "ABBEL: LLM Agents Acting through Belief Bottlenecks Expressed in Language," 2025. https://openreview.net/forum?id=DNLD6pWP8l
-
-## Acknowledgments
-
-AI coding assistants were used to help understand the data and generate plots/tables in Python, and a general-purpose AI chat assistant was used to help clarify task goals and answer background questions during the analysis.
